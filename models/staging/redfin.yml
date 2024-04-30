@@ -1,0 +1,10 @@
+version: 2
+sources:
+ - name: redfincountry
+   database: REDFIN
+   schema: PUBLIC
+   tables:
+
+   - name: REDFIN_MAINTABLE
+
+

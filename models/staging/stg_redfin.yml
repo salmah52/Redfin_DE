@@ -1,0 +1,71 @@
+version: 2
+
+sources:
+  - name: stg_redfin_data
+    description: "Staging table for Redfin data"
+    database: REDFIN
+    schema: PUBLIC
+    tables:
+      - name: REDFIN_MAINTABLE
+        description: "Staging table for Redfin data"
+        columns:
+          - name: period_begin
+            description: "Start date of the period"
+            tests:
+              - unique
+          - name: period_end
+            description: "End date of the period"
+            tests:
+              - unique
+          - name: period_duration
+            description: "Duration of the period"
+          - name: region_type
+            description: "Type of the region"
+          - name: region_type_id
+            description: "ID of the region type"
+          - name: table_id
+            description: "ID of the table"
+          - name: is_seasonally_adjusted
+            description: "Flag indicating if the data is seasonally adjusted"
+          - name: city
+            description: "City name"
+          - name: state
+            description: "State name"
+          - name: state_code
+            description: "State code"
+          - name: property_type
+            description: "Type of property"
+          - name: property_type_id
+            description: "ID of the property type"
+          - name: median_sale_price
+            description: "Median sale price"
+          - name: median_list_price
+            description: "Median list price"
+          - name: median_ppsf
+            description: "Median price per square foot"
+          - name: median_list_ppsf
+            description: "Median list price per square foot"
+          - name: homes_sold
+            description: "Number of homes sold"
+          - name: inventory
+            description: "Inventory count"
+          - name: months_of_supply
+            description: "Number of months of supply"
+          - name: median_dom
+            description: "Median days on market"
+          - name: avg_sale_to_list
+            description: "Average sale to list ratio"
+          - name: sold_above_list
+            description: "Number of homes sold above list price"
+          - name: parent_metro_region_metro_code
+            description: "Code of the parent metro region"
+          - name: last_updated
+            description: "Timestamp of last update"
+          - name: period_begin_in_years
+            description: "Year of the period begin"
+          - name: period_end_in_years
+            description: "Year of the period end"
+          - name: period_begin_in_months
+            description: "Month of the period begin"
+          - name: period_end_in_months
+            description: "Month of the period end"
