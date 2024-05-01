@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: fct_redfin_sales
+    description: |
+      This model calculates total sales amount and count grouped by period, city, state, and property type.
+    columns:
+      - name: period_begin
+        description: The beginning period of sales data.
+        tests:
+          - not_null
+      - name: city
+        description: The city where the sales occurred.
+        tests:
+          - not_null
+      - name: state
+        description: The state where the sales occurred.
+        tests:
+          - not_null
+      - name: property_type
+        description: The type of property (e.g., Single Family Residential, Condo/Co-op).
+        tests:
+          - not_null
+      - name: total_sales_amount
+        description: The total amount of sales for the given period, city, state, and property type.
+        tests:
+          - not_null
+      - name: total_sales_count
+        description: The total count of sales for the given period, city, state, and property type.
+        tests:
+          - not_null
+    unique_key: [period_begin, city, state, property_type]
+    tags: [fact]

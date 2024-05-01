@@ -1,7 +1,7 @@
 version: 2
 
 sources:
-  - name: stg_redfin_data
+  - name: stg_redfindata
     description: "Staging table for Redfin data"
     database: REDFIN
     schema: PUBLIC

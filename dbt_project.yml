@@ -7,7 +7,7 @@ version: '1.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
-profile: 'mainredfin'
+profile: 'default'
 
 # These configurations specify where dbt should look for different types of files.
 # The `model-paths` config, for example, states that models in this project can be
@@ -35,8 +35,27 @@ clean-targets:         # directories to be removed by `dbt clean`
 # continue to be built as views. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 
+# models:
+#   mainredfin:
+#     # Applies to all files under models/example/
+#    +materialized: table
+
+
+
 models:
-  mainredfin:
-    # Applies to all files under models/example/
-    example:
+    mainredfin:
+      +materialized: view
+    staging: # Data storage layer
+      +materialized: view
+      +schema: STAGING
+    metrics: # Refined data layer
+      +materialized: view
+      +schema: METRICS
+    marts: # Data delivery layer
+      portfolio: # one specific data mart
       +materialized: table
+      +schema: MART_PORTFOLIO
+
+snapshots:
+ portfolio_tracking:
+ +target_schema: SNAPSHOTS
